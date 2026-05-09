@@ -3,9 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Candle Surprise</title>
+    
+    <!-- 1. External CSS Link goes OUTSIDE the style tag -->
+    <link rel="stylesheet" href="style.css">
+    
     <style>
-        <link rel="stylesheet" href="style.css">
-        /* This ensures the message is hidden until the mic detects a blow */
+        /* 2. Internal CSS for visibility logic */
         #birthday-message {
             display: none; 
             flex-direction: column;
@@ -14,7 +17,6 @@
             transition: opacity 1s ease-in;
         }
         
-        /* Simple styling for the image to match your screenshot */
         #bday-photo {
             max-width: 300px;
             border: 5px solid white;
@@ -25,6 +27,12 @@
         .container {
             text-align: center;
             font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        /* 3. Ensure the flame starts hidden until 'Light the Candle' is clicked */
+        .flame-wrapper {
+            display: none;
         }
     </style>
 </head>
@@ -41,7 +49,7 @@
             </div>
         </div>
 
-        <!-- THE BIRTHDAY SECTION (Fixed duplicate ID) -->
+        <!-- THE BIRTHDAY SECTION -->
         <div id="birthday-message">
             <h1>✨ Happy Birthday! ✨</h1>
             <p>Make a wish come true.</p>
@@ -49,10 +57,13 @@
         </div>
 
         <p id="status">Ready to celebrate?</p>
-        <button id="startBtn"
-                >LIGHT THE CANDLE</button>
+        <button id="startBtn">LIGHT THE CANDLE</button>
     </div>
 
-<script src="script.js" defer></script>
+    <!-- 4. JS Link at the very bottom -->
+    <script src="script.js" defer></script>
 </body>
 </html>
+       
+         
+           
