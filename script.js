@@ -9,16 +9,14 @@ btn.addEventListener('click', async () => {
         // 1. Request microphone access
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         
-        // 2. MAKE THE FLAME VISIBLE
+        // 2. Make the flame visible
         if (flame) {
             flame.style.display = 'block'; 
-            // This is the "match" that lights the candle
-flame.style.setProperty('display', 'block', 'important');
         }
         
         // 3. Update UI
         btn.style.display = 'none';
-        statusText.innerText = "Now, blow on your microphone!";
+        statusText.innerText = "Blow on your microphone now!";
 
         // 4. Set up Audio Analysis
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -39,7 +37,7 @@ flame.style.setProperty('display', 'block', 'important');
                 candleDiv.style.display = 'none';
                 statusText.style.display = 'none';
                 
-                // Show the birthday message (the photo and text)
+                // Show the birthday message
                 birthdaySection.style.display = 'flex'; 
                 birthdaySection.style.opacity = '1';
                 
@@ -52,9 +50,7 @@ flame.style.setProperty('display', 'block', 'important');
         detectBlow();
         
     } catch (err) {
-        console.error(err);
-        alert("Microphone access is required to blow out the candle!");
+        console.error("Mic error:", err);
+        alert("Microphone access is required for the candle to work!");
     }
-  
-      
-});
+}); // This closing bracket was likely missing!
