@@ -55,19 +55,6 @@ flame.style.setProperty('display', 'block', 'important');
         console.error(err);
         alert("Microphone access is required to blow out the candle!");
     }
-    btn.addEventListener('click', async () => {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        
-        // Use the exact ID from your HTML
-        const flameGroup = document.getElementById('flame-group');
-        if (flameGroup) {
-            flameGroup.style.display = 'block'; // Force it to show
-            console.log("Flame should be visible now!");
-        }
-
-        btn.style.display = 'none';
-        statusText.innerText = "Blow now!";
-        
-        // ... rest of your audio logic ...
+  
+      
 });
