@@ -1,3 +1,4 @@
+const flame = document.getElementById('flame-group');
 const candleDiv = document.getElementById('candle-div');
 const btn = document.getElementById('startBtn');
 const birthdaySection = document.getElementById('birthday-message');
@@ -5,14 +6,19 @@ const statusText = document.getElementById('status');
 
 btn.addEventListener('click', async () => {
     try {
-        // Request microphone access
+        // 1. Request microphone access
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         
-        // Update UI to tell the user what to do
+        // 2. MAKE THE FLAME VISIBLE
+        if (flame) {
+            flame.style.display = 'block'; 
+        }
+        
+        // 3. Update UI
         btn.style.display = 'none';
-        statusText.innerText = "Blow on your microphone to make a wish!";
+        statusText.innerText = "Now, blow on your microphone!";
 
-        // Set up Audio Analysis
+        // 4. Set up Audio Analysis
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const analyser = audioContext.createAnalyser();
         const source = audioContext.createMediaStreamSource(stream);
@@ -23,22 +29,19 @@ btn.addEventListener('click', async () => {
 
         function detectBlow() {
             analyser.getByteFrequencyData(dataArray);
-            // Calculate average volume
             let volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
 
-            // Sensitivity threshold (55)
+            // Sensitivity threshold
             if (volume > 55) { 
-                // 1. Hide the candle and status
+                // Hide candle and status
                 candleDiv.style.display = 'none';
                 statusText.style.display = 'none';
                 
-                // 2. Show the birthday message
+                // Show the birthday message (the photo and text)
                 birthdaySection.style.display = 'flex'; 
                 birthdaySection.style.opacity = '1';
                 
-                console.log("Wish made! Birthday message revealed.");
-
-                // 3. Stop the microphone to save battery/privacy
+                // Stop the microphone
                 stream.getTracks().forEach(track => track.stop());
                 return; 
             }
@@ -48,6 +51,6 @@ btn.addEventListener('click', async () => {
         
     } catch (err) {
         console.error(err);
-        alert("Microphone access is required for the candle to work!");
+        alert("Microphone access is required to blow out the candle!");
     }
 });
