@@ -28,15 +28,7 @@ body {
     margin-bottom: 20px;
 }
 
-.wick {
-    width: 4px;
-    height: 15px;
-    background: #222;
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+
 
 .flame-wrapper {
     /* Inside your index.html <style> tag */
