@@ -12,6 +12,8 @@ btn.addEventListener('click', async () => {
         // 2. MAKE THE FLAME VISIBLE
         if (flame) {
             flame.style.display = 'block'; 
+            // This is the "match" that lights the candle
+flame.style.setProperty('display', 'block', 'important');
         }
         
         // 3. Update UI
