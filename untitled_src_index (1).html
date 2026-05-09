@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Candle Surprise</title>
+    <style>
+        /* This ensures the message is hidden until the mic detects a blow */
+        #birthday-message {
+            display: none; 
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        
+        /* Simple styling for the image to match your screenshot */
+        #bday-photo {
+            max-width: 300px;
+            border: 5px solid white;
+            box-shadow: 0 0 15px rgba(255,215,0,0.5);
+            border-radius: 8px;
+        }
+        
+        .container {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- THE CANDLE SECTION -->
+        <div id="candle-div">
+            <div class="candle">
+                <div id="flame-group" class="flame-wrapper">
+                    <div class="flame-main"></div>
+                </div>
+                <div class="wick"></div>
+            </div>
+        </div>
+
+        <!-- THE BIRTHDAY SECTION (Fixed duplicate ID) -->
+        <div id="birthday-message">
+            <h1>✨ Happy Birthday! ✨</h1>
+            <p>Make a wish come true.</p>
+            <img id="bday-photo" src="https://ik.imagekit.io/67sjoizwq/lavaaaaa04.png" alt="Happy Birthday Photo">
+        </div>
+
+        <p id="status">Ready to celebrate?</p>
+        <button id="startBtn"
+                >LIGHT THE CANDLE</button>
+    </div>
+
+</body>
+</html>
