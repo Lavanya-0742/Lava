@@ -39,6 +39,8 @@ body {
 }
 
 .flame-wrapper {
+    /* Inside your index.html <style> tag */
+    display: none; /* Keep it hidden at first */
     position: absolute;
     top: -50px;
     left: 50%;
