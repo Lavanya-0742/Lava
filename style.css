@@ -17,24 +17,34 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .candle {
-    width: 38px;
-    height: 120px;
-    background: #e7c191; /* Matches the color in your screenshot */
+    width: 50px;
+    height: 150px;
+    background: linear-gradient(to right, #e2c9a3, #f7e9d7, #c4a77d);
+    position: relative;
     border-radius: 6px;
-    position: relative; /* CRITICAL: This anchors the flame to the candle */
-    margin: 50px auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.wick {
+    width: 4px;
+    height: 15px;
+    background: #222;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .flame-wrapper {
     position: absolute;
-    top: -45px; /* Adjust this so it sits right on the wick */
+    top: -70px;
     left: 50%;
     transform: translateX(-50%);
-    width: 25px;
-    height: 45px;
-    display: none; /* JS will turn this to 'block' */
-    z-index: 10;
+    width: 30px;
+    height: 55px;
 }
 
 .flame-main {
@@ -43,9 +53,8 @@ body {
     background: radial-gradient(ellipse at bottom, #ff9d00, #f1c40f 60%, transparent 90%);
     border-radius: 50% 50% 20% 20%;
     box-shadow: 0 0 40px #ff9d00;
+    animation: flicker 0.1s infinite alternate;
 }
-
-
 
 @keyframes flicker {
     0% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
