@@ -10,7 +10,7 @@ btn.addEventListener('click', async () => {
         
         // Update UI to tell the user what to do
         btn.style.display = 'none';
-        statusText.innerText = "Blow on your microphone to make a wish!";
+        statusText.innerText = "Blow on your microphone and make a wish!";
 
         // Set up Audio Analysis
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
